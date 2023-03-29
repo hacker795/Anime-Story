@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Animation Story</title>
+       <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<style>
+       header {
+         color: rgb(3, 25, 49);
+         padding: 5px;
+         text-align: center;
+       }
+       h1 {
+         font-size: 48px;
+         margin: 0;
+         padding-bottom: 10px;
+         animation-name: fade;
+         animation-duration: 2s;
+         animation-timing-function: ease-in-out;
+         animation-iteration-count: infinite;
+       }
+       @keyframes fade {
+         0% { opacity: 0; }
+         50% { opacity: 1; }
+         100% { opacity: 0; }
+       }
+</style>
+
+<body onload="startAnimation()" onunload="stopAnimation()" id="bi">
+
+       <header>
+              <h1 id="header-text">Anime Story</h1>
+       </header>
+
+       <audio autoplay>
+              <source src="music.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+       </audio>
+
+       <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <MARQUEE  direction="right" scrolldelay="30" truespeed >
+            <img id="spi" src="1.jpg">     
+        </MARQUEE>
+
+        <script src="script.js"></script>
+        <script>
+            const header = document.getElementById('header-text');
+            const texts = ["", "", "", "", "", "", "", "", ""];
+            let index = 0;
+            setInterval(() => {
+                header.textContent = texts[index];
+                index = (index + 1) % texts.length;
+            }, 7600);
+        </script>
+
+</body>
+</html>
